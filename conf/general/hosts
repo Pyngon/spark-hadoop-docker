@@ -1,0 +1,4 @@
+127.0.0.1 localhost
+10.0.199.1 master
+10.0.199.2 slave1
+10.0.199.3 slave2
