@@ -3,6 +3,7 @@ services:
   master:
     build: .
     image: spark-hadoop-docker
+    command: sh /scripts/launch.sh #tail -f /dev/null
     hostname: master
     networks:
       static-network:
@@ -11,6 +12,7 @@ services:
       - 9870
       - 7077
       - 6066
+      - 22
     ports:
       - 9870:9870
       - 6066:6066
@@ -18,34 +20,37 @@ services:
       - 8080:8080
       - 8088:8088
       - 8000:8000
-#   slave1:
-#     build: .
-#     image: spark-hadoop-docker
-#     command: /bin/bash
-#     hostname: slave1
-#     networks:
-#       static-network:
-#         ipv4_address: 10.0.199.2
-#     expose:
-#       - 9870
-#       - 7077
-#       - 6066
-#     ports:
-#       - 9871:9870
-#   slave2:
-#     build: .
-#     image: spark-hadoop-docker
-#     command: /bin/bash
-#     hostname: slave2
-#     networks:
-#       static-network:
-#         ipv4_address: 10.0.199.3
-#     expose:
-#       - 9870
-#       - 7077
-#       - 6066
-#     ports:
-#       - 9872:9870
+    volumes:
+      - ./scripts:/scripts
+  slave1:
+    build: .
+    image: spark-hadoop-docker
+    command: tail -f /dev/null
+    hostname: slave1
+    networks:
+      static-network:
+        ipv4_address: 10.0.199.2
+    expose:
+      - 9870
+      - 7077
+      - 6066
+      - 22
+    ports:
+      - 9871:9870
+  # slave2:
+  #   build: .
+  #   image: spark-hadoop-docker
+  #   command: /bin/bash
+  #   hostname: slave2
+  #   networks:
+  #     static-network:
+  #       ipv4_address: 10.0.199.3
+  #   expose:
+  #     - 9870
+  #     - 7077
+  #     - 6066
+  #   ports:
+  #     - 9872:9870
 networks:
   static-network:
     ipam:
