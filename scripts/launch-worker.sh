@@ -1,6 +1,5 @@
 #!/bin/bash
 
 /etc/init.d/ssh start
-# start-dfs.sh
-# start-yarn.sh
+export SPARK_DIST_CLASSPATH=$(hadoop classpath)
 tail -f /dev/null

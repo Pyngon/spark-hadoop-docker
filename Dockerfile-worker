@@ -62,10 +62,8 @@ RUN hdfs namenode -format
 
 COPY conf/spark/spark-env.sh $SPARK_HOME/conf/spark-env.sh
 COPY conf/spark/slaves $SPARK_HOME/conf/slaves
-COPY scripts/launch-master.sh /launch-master.sh
-COPY scripts/launch-worker.sh /launch-worker.sh
-RUN chmod +x /launch-master.sh \
-  && chmod +x /launch-worker.sh
+COPY scripts/launch.sh /launch.sh
+RUN chmod +x /launch.sh
 
 WORKDIR /
-CMD ["/launch-master.sh"]
+CMD ["/launch.sh"]
