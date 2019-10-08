@@ -4,7 +4,7 @@
 --queue default \
 --num-executors 2 \
 --executor-memory 2G \
---py-files $TFoS_HOME/tfspark.zip,$TFoS_HOME/examples/mnist/spark/mnist_dist.py \
+--py-files /sample/code/spark/mnist_dist.py \
 --conf spark.dynamicAllocation.enabled=false \
 --conf spark.yarn.maxAppAttempts=1 \
 --conf spark.executorEnv.LD_LIBRARY_PATH=$LIB_JVM:$LIB_HDFS \
@@ -15,7 +15,7 @@
 --conf spark.pyspark.python=$PYSPARK_PYTHON \
 --conf spark.yarn.appMasterEnv.PYTHONPATH=$PYSPARK_PYTHON \
 --conf spark.executorEnv.SPARK_YARN_USER_ENV=$SPARK_YARN_USER_ENV \
-$TFoS_HOME/examples/mnist/spark/mnist_spark.py \
+/sample/code/spark/mnist_spark.py \
 --images mnist/csv/train/images \
 --labels mnist/csv/train/labels \
 --mode train \
