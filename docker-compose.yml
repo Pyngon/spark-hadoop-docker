@@ -28,6 +28,7 @@ services:
       - 8000:8000
     volumes:
       - ./scripts:/scripts
+      - ./sample:/sample
   slave1:
     build: .
     image: hadoop-spark
@@ -44,9 +45,11 @@ services:
       - 9870
       - 7077
       - 6066
+      - 8042
       - 22
     ports:
       - 9871:9870
+      - 8043:8042
   slave2:
     build: .
     image: hadoop-spark
@@ -63,8 +66,10 @@ services:
       - 9870
       - 7077
       - 6066
+      - 8042
     ports:
       - 9872:9870
+      - 8044:8042
 networks:
   static-network:
     ipam:
