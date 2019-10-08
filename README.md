@@ -2,6 +2,10 @@
 A docker image for running spark on hadoop cluster with yarn cluster manager 
 and HDFS.
 
+# Note
+* Make sure that you have installed the latest version of Docker.
+* Make sure you have set enough memory space for Docker Engine. You can click the Docker symbol and select `Preferences/Advanced`. Then set the memory to a larger value depending on your laptop's memory size, and then click `Apply & Restart`.
+
 # Run container command
 The docker-compose.yml brings up one master and two slaves containers.<br />
 To bring it up, simply use command `docker-compose up`
