@@ -19,4 +19,4 @@ Steps<br />
 6. `./mnist_test.sh`
 
 After the test, you could find the result in hdfs under /user/root/predictions.<br />
-When the task is running, can connect to http://localhost:8088 to check the log
+When the task is running, you can connect to http://localhost:8088 to check the log. When you check the logs of each slave node, the Hadoop/Spark UI will redirect you to a URL with prefix slave1:8042 and slave2:8042. Simply modify them to localhost:8043 and localhost:8044, and you can then see the logs for each slave node.
