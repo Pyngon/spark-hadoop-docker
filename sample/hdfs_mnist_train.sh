@@ -7,6 +7,14 @@
 --py-files hdfs:///user/root/mnist/input/code/spark/mnist_dist.py \
 --conf spark.dynamicAllocation.enabled=false \
 --conf spark.yarn.maxAppAttempts=1 \
+--conf spark.executorEnv.LD_LIBRARY_PATH=$LIB_JVM:$LIB_HDFS \
+--conf spark.executorEnv.CLASSPATH=$(hadoop classpath --glob) \
+--conf spark.executorEnv.LIB_HDFS=$LIB_HDFS \
+--conf spark.executorEnv.LIB_JVM=$LIB_JVM \
+--conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=$PYSPARK_PYTHON \
+--conf spark.pyspark.python=$PYSPARK_PYTHON \
+--conf spark.yarn.appMasterEnv.PYTHONPATH=$PYSPARK_PYTHON \
+--conf spark.executorEnv.SPARK_YARN_USER_ENV=$SPARK_YARN_USER_ENV \
 hdfs:///user/root/mnist/input/code/spark/mnist_spark.py \
 --images mnist/output/train/images \
 --labels mnist/output/train/labels \

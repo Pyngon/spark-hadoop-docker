@@ -74,4 +74,4 @@ networks:
   static-network:
     ipam:
       config:
-        - subnet: 10.0.199.0/8
+        - subnet: 10.0.199.0/24
